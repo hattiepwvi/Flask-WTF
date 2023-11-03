@@ -3,12 +3,12 @@
 #2.
 {% block title %}Success{% endblock %}
 #3.
-<!--3、BP5 代替{% block styling %}-->
-<!--	{{ super() }}-->
-<!--	h1 {-->
-<!--		color:red;-->
-<!--	}-->
-<!--{% endblock %}-->
+{% block styling %}
+	{{ super() }}
+	h1 {
+		color:red;
+	}
+{% endblock %}
 {% block content %}
 	<div class="container">
 		<h1>Top Secret </h1>

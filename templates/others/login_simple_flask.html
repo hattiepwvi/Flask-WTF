@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Access Denied{% endblock %}
+{% block content %}
+        <div class="container">
+		<h1>Login</h1>
+        <!-- This is where our form will go. -->
+<!--			novalidate 去掉内置的报错的弹出窗口 pop-up-->
+			<form method="POST" action="{{ url_for('login') }}" novalidate>
+<!--	添加 	csrf protection		-->
+				{{ form.csrf_token }}
+<!--	label 对应的是 main.py 里的 StringField 或 PasswordField 的 label 属性 			-->
+				<p>
+					{{ form.email.label }} <br> {{ form.email(size=30) }}
+					{% for err in form.email.errors %}
+						<span style="color:red">{{ err }}</span>
+					{% endfor %}
+				</p>
+				<p>
+					{{ form.password.label }} <br> {{ form.password(size=30) }}
+					{% for err in form.password.errors %}
+						<span style="color:red">{{ err }}</span>
+					{% endfor %}
+				</p>
+				{{ form.submit }}
+			</form>
+        </div>
+{% endblock %}
